@@ -10,6 +10,7 @@ export const processDemo=`<div class="order-receipt" data-ui data-demo-state="0"
  </div>
  <div class="demo-switcher" role="group" aria-label="Демонстрация этапов">${['Заказ','Накладная','Трек'].map((label,i)=>`<button type="button" data-demo-step="${i}" aria-pressed="${i===0}" class="${i===0?'active':''}">${label}</button>`).join('')}</div>
  <div class="receipt-status"><span class="live-dot"></span><span id="demo-status" aria-live="polite">Заказ готов к отгрузке</span>${icon('check')}</div>
+ <div class="demo-playback"><span>Автопоказ этапов</span><button type="button" class="demo-pause" aria-label="Приостановить автопоказ">Пауза</button></div>
 </div>`;
 
 export function selectDemo(index,reduced){
@@ -18,4 +19,33 @@ export function selectDemo(index,reduced){
  card.dataset.demoState=String(index);
  card.querySelectorAll('[data-demo-panel]').forEach(panel=>{panel.getAnimations().forEach(a=>a.cancel());panel.hidden=panel.dataset.demoPanel!==String(index);if(!panel.hidden&&!reduced)panel.animate([{opacity:.3,transform:'translateY(8px) scale(.98)'},{opacity:1,transform:'translateY(0) scale(1)'}],{duration:240,easing:'cubic-bezier(.23,1,.32,1)'});});
  card.querySelectorAll('[data-demo-step]').forEach(button=>{const active=button.dataset.demoStep===String(index);button.classList.toggle('active',active);button.setAttribute('aria-pressed',String(active));});
+}
+
+// A single timer prevents double advancement; explicit pause survives scrolling.
+export function initDemoPlayback(select,reduced){
+ const card=document.querySelector('.order-receipt'),button=card.querySelector('.demo-pause');
+ const caption=card.querySelector('.demo-playback>span');
+ let visible=false,paused=false,timer=0,manualUntil=0;
+ function schedule(){
+  clearTimeout(timer);
+  const keyboardFocus=document.querySelector('#how :focus-visible');
+  if(!visible||paused||reduced.matches||document.hidden||keyboardFocus)return;
+  timer=setTimeout(()=>{select((Number(card.dataset.demoState)+1)%3,false);schedule();},Math.max(4000,manualUntil-Date.now()));
+ }
+ function refresh(){
+  button.disabled=reduced.matches;
+  button.textContent=reduced.matches?'Выключен':paused?'Продолжить':'Пауза';
+  button.setAttribute('aria-label',paused?'Продолжить автопоказ':'Приостановить автопоказ');
+  caption.textContent=reduced.matches?'Ручной режим':'Автопоказ этапов';
+  schedule();
+ }
+ button.addEventListener('click',()=>{paused=!paused;refresh();});
+ new IntersectionObserver(entries=>{visible=entries[0].intersectionRatio>=.35; schedule();},{threshold:[0,.35]}).observe(card);
+ document.addEventListener('visibilitychange',schedule);
+ document.querySelector('#how').addEventListener('focusin',schedule);
+ document.querySelector('#how').addEventListener('focusout',()=>queueMicrotask(schedule));
+ reduced.addEventListener('change',refresh);
+ document.querySelector('#demo-status').setAttribute('aria-live','off');
+ refresh();
+ return index=>{manualUntil=Date.now()+8000;select(index,true);schedule();};
 }

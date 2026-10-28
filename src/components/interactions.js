@@ -1,7 +1,7 @@
 // Доступные действия: этапы обработки, реальные экраны и навигация.
 import {icon} from './icons';
 import {steps} from './content';
-import {selectDemo} from './process-demo';
+import {selectDemo,initDemoPlayback} from './process-demo';
 // Инициализирует состояния презентации, не меняя данные внешнего сервиса.
 export function initInteractions(){
  const reduced=matchMedia('(prefers-reduced-motion: reduce)');
@@ -11,12 +11,15 @@ export function initInteractions(){
  menuButton.addEventListener('click',()=>setMenu(menu.hidden));
  menu.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>setMenu(false)));
  document.addEventListener('keydown',event=>{if(event.key==='Escape')setMenu(false);});
- document.querySelectorAll('[data-step],[data-demo-step]').forEach(button=>button.addEventListener('click',()=>{
-  const index=Number(button.dataset.step??button.dataset.demoStep);
+ function setStep(index,manual){
   document.querySelectorAll('[data-step]').forEach(item=>{const active=Number(item.dataset.step)===index;item.classList.toggle('active',active);item.setAttribute('aria-pressed',String(active));});
   selectDemo(index,reduced.matches);
-  document.querySelector('#demo-status').textContent=steps[index][3];
- }));
+  const status=document.querySelector('#demo-status');
+  status.setAttribute('aria-live',manual?'polite':'off');
+  status.textContent=steps[index][3];
+ }
+ const manualStep=initDemoPlayback(setStep,reduced);
+ document.querySelectorAll('[data-step],[data-demo-step]').forEach(button=>button.addEventListener('click',()=>manualStep(Number(button.dataset.step??button.dataset.demoStep))));
  const tabs=[...document.querySelectorAll('[data-screen]')];
  // Меняет настоящий скриншот и обеспечивает управление вкладками с клавиатуры.
  function selectScreen(button){tabs.forEach(tab=>{const active=tab===button;tab.classList.toggle('active',active);tab.setAttribute('aria-selected',String(active));tab.tabIndex=active?0:-1;document.querySelector(`#screen-${tab.dataset.screen}`).hidden=!active;});}

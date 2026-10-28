@@ -25,6 +25,10 @@
 .demo-switcher button{min-width:0;min-height:44px;padding:8px 5px;font-size:12px;background:transparent;border:1px solid #4c515e;border-radius:9px;color:#c1c5cf;touch-action:manipulation;transition:background .2s ease}
 .demo-switcher button.active{background:var(--demo-accent);border-color:var(--demo-accent);color:white}
 .order-receipt .receipt-status{font-size:12px;min-height:38px;line-height:1.6}
+.demo-playback{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:8px;padding-top:8px;border-top:1px solid #4c515e;font-size:11px;color:#c1c5cf}
+.demo-pause{min-height:44px;padding:8px 12px;border:0;border-radius:8px;background:transparent;color:white;font-size:12px;touch-action:manipulation}
+.demo-pause:disabled{color:#9298a5;cursor:default}
+@media(hover:hover) and (pointer:fine){.demo-pause:not(:disabled):hover{background:#353840}}
 @media(max-width:900px){.order-receipt{padding:18px}.demo-brand,.demo-return{font-size:22px}.demo-brand>span{font-size:10px}.demo-stage{height:260px}.demo-waybill{padding:15px;margin-inline:3px}.demo-package{gap:14px}.demo-package>.icon{width:45px;height:45px}.demo-waybill>p{font-size:16px}}
 @media(max-width:760px){.order-receipt{max-width:420px}.demo-stage{height:252px}}
 @media(max-width:360px){.order-receipt{padding:16px}.receipt-top{gap:8px;font-size:11px}.demo-switcher button{font-size:11px}.demo-package strong,.demo-tracking strong{font-size:13px}.demo-return{font-size:21px}.demo-brand{font-size:23px}.demo-package{gap:12px}.demo-waybill{padding:13px}.waybill-caption{font-size:9px}}
