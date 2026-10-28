@@ -1,0 +1,289 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-10-28T04:58:17.6650339Z",
+  "title": "Design System: OZON × DPD",
+  "extensions": {
+    "colorMeta": {
+      "blue": {
+        "role": "primary",
+        "displayName": "OZON Action Blue",
+        "tonalRamp": [
+          "oklch(15% 0.069 265)",
+          "oklch(27% 0.138 265)",
+          "oklch(39% 0.196 265)",
+          "oklch(51% 0.23 265)",
+          "oklch(63% 0.23 265)",
+          "oklch(75% 0.184 265)",
+          "oklch(87% 0.104 265)",
+          "oklch(95% 0.035 265)"
+        ]
+      },
+      "blue-dark": {
+        "role": "primary",
+        "displayName": "Deep Action Blue",
+        "tonalRamp": [
+          "oklch(15% 0.069 265)",
+          "oklch(27% 0.138 265)",
+          "oklch(39% 0.196 265)",
+          "oklch(51% 0.23 265)",
+          "oklch(63% 0.23 265)",
+          "oklch(75% 0.184 265)",
+          "oklch(87% 0.104 265)",
+          "oklch(95% 0.035 265)"
+        ]
+      },
+      "red": {
+        "role": "secondary",
+        "displayName": "DPD Signal Red",
+        "tonalRamp": [
+          "oklch(15% 0.069 20)",
+          "oklch(27% 0.138 20)",
+          "oklch(39% 0.196 20)",
+          "oklch(51% 0.23 20)",
+          "oklch(63% 0.23 20)",
+          "oklch(75% 0.184 20)",
+          "oklch(87% 0.104 20)",
+          "oklch(95% 0.035 20)"
+        ]
+      },
+      "ink": {
+        "role": "neutral",
+        "displayName": "Deep Ink",
+        "tonalRamp": [
+          "oklch(15% 0.011 255)",
+          "oklch(27% 0.021 255)",
+          "oklch(39% 0.03 255)",
+          "oklch(51% 0.035 255)",
+          "oklch(63% 0.035 255)",
+          "oklch(75% 0.028 255)",
+          "oklch(87% 0.016 255)",
+          "oklch(95% 0.005 255)"
+        ]
+      },
+      "muted": {
+        "role": "neutral",
+        "displayName": "Slate Text",
+        "tonalRamp": [
+          "oklch(15% 0.011 255)",
+          "oklch(27% 0.021 255)",
+          "oklch(39% 0.03 255)",
+          "oklch(51% 0.035 255)",
+          "oklch(63% 0.035 255)",
+          "oklch(75% 0.028 255)",
+          "oklch(87% 0.016 255)",
+          "oklch(95% 0.005 255)"
+        ]
+      },
+      "paper": {
+        "role": "neutral",
+        "displayName": "White Paper",
+        "tonalRamp": [
+          "oklch(15% 0 255)",
+          "oklch(27% 0 255)",
+          "oklch(39% 0 255)",
+          "oklch(51% 0 255)",
+          "oklch(63% 0 255)",
+          "oklch(75% 0 255)",
+          "oklch(87% 0 255)",
+          "oklch(95% 0 255)"
+        ]
+      },
+      "ice": {
+        "role": "neutral",
+        "displayName": "Ice Blue",
+        "tonalRamp": [
+          "oklch(15% 0.009 265)",
+          "oklch(27% 0.018 265)",
+          "oklch(39% 0.026 265)",
+          "oklch(51% 0.03 265)",
+          "oklch(63% 0.03 265)",
+          "oklch(75% 0.024 265)",
+          "oklch(87% 0.014 265)",
+          "oklch(95% 0.005 265)"
+        ]
+      },
+      "surface": {
+        "role": "neutral",
+        "displayName": "Cool Surface",
+        "tonalRamp": [
+          "oklch(15% 0.004 255)",
+          "oklch(27% 0.007 255)",
+          "oklch(39% 0.01 255)",
+          "oklch(51% 0.012 255)",
+          "oklch(63% 0.012 255)",
+          "oklch(75% 0.01 255)",
+          "oklch(87% 0.005 255)",
+          "oklch(95% 0.002 255)"
+        ]
+      },
+      "line": {
+        "role": "neutral",
+        "displayName": "Connection Grey",
+        "tonalRamp": [
+          "oklch(15% 0.006 255)",
+          "oklch(27% 0.012 255)",
+          "oklch(39% 0.017 255)",
+          "oklch(51% 0.02 255)",
+          "oklch(63% 0.02 255)",
+          "oklch(75% 0.016 255)",
+          "oklch(87% 0.009 255)",
+          "oklch(95% 0.003 255)"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display",
+        "purpose": "Desktop hero; responsive overrides are documented in DESIGN.md."
+      },
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "Section headings."
+      },
+      "title": {
+        "displayName": "Title",
+        "purpose": "Base subheadings; feature and pricing contexts have explicit overrides."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Explanatory section text."
+      },
+      "label": {
+        "displayName": "Label",
+        "purpose": "Navigation, process metadata and captions."
+      }
+    },
+    "shadows": [],
+    "motion": [
+      {
+        "name": "ease",
+        "value": "cubic-bezier(.16,1,.3,1)",
+        "purpose": "Section entrances and route animation."
+      },
+      {
+        "name": "control-feedback",
+        "value": "200ms",
+        "purpose": "Button colors and small transforms."
+      },
+      {
+        "name": "shipment-selection",
+        "value": "250ms",
+        "purpose": "Selected demonstration stage reveal."
+      },
+      {
+        "name": "section-entrance",
+        "value": "650ms",
+        "purpose": "One-time entrance on intersection."
+      },
+      {
+        "name": "shipment-entrance",
+        "value": "900ms",
+        "purpose": "Initial clipped shipment reveal."
+      },
+      {
+        "name": "route-pulse",
+        "value": "2800ms",
+        "purpose": "Repeating route dots; reduced motion disables animation."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "wide",
+        "value": "1600px"
+      },
+      {
+        "name": "compact-desktop",
+        "value": "1100px"
+      },
+      {
+        "name": "tablet",
+        "value": "800px"
+      },
+      {
+        "name": "phone",
+        "value": "600px"
+      },
+      {
+        "name": "narrow-phone",
+        "value": "360px"
+      }
+    ],
+    "tonalRampNote": "Ramps are synthesized OKLCH previews, dark to light; they are not additional implemented CSS tokens. Hex primitives remain normative in DESIGN.md."
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Main integration action.",
+      "html": "<button class=\"ds-primary\">Подключить интеграцию <svg width=\"19\" height=\"19\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.8\" aria-hidden=\"true\"><path d=\"M5 12h14m-6-6 6 6-6 6\"/></svg></button>",
+      "css": ".ds-primary{display:inline-flex;align-items:center;justify-content:space-between;gap:22px;background:var(--blue,#005bff);color:var(--paper,#fff);border:0;border-radius:8px;min-height:54px;padding:16px 23px;font:700 14px Manrope,sans-serif;cursor:pointer;transition:background .2s,transform .2s}.ds-primary:hover{background:var(--blue-dark,#0046cf);transform:translateY(-2px)}.ds-primary:active{transform:translateY(1px)}.ds-primary:focus-visible{outline:3px solid var(--red,#dc0032);outline-offset:5px}.ds-primary:disabled{cursor:wait;opacity:.6}@media(prefers-reduced-motion:reduce){.ds-primary{transition:none}}"
+    },
+    {
+      "name": "Secondary Button",
+      "kind": "button",
+      "refersTo": "button-secondary",
+      "description": "Pricing action on a white panel.",
+      "html": "<button class=\"ds-secondary\">Выбрать тариф →</button>",
+      "css": ".ds-secondary{background:var(--ice,#eef4ff);color:var(--blue,#005bff);border:0;border-radius:8px;min-height:48px;padding:16px 23px;font:700 13px Manrope,sans-serif;cursor:pointer;transition:background .2s,transform .2s}.ds-secondary:hover{background:#dce9ff;transform:translateY(-2px)}.ds-secondary:active{transform:translateY(1px)}.ds-secondary:focus-visible{outline:3px solid var(--red,#dc0032);outline-offset:5px}@media(prefers-reduced-motion:reduce){.ds-secondary{transition:none}}"
+    },
+    {
+      "name": "White Button",
+      "kind": "button",
+      "refersTo": "button-white",
+      "description": "Action on saturated blue panels; preview includes its surface context.",
+      "html": "<div class=\"ds-blue-context\"><button class=\"ds-white\">Подключить интеграцию →</button></div>",
+      "css": ".ds-blue-context{padding:24px;background:var(--blue,#005bff);border-radius:16px}.ds-white{background:var(--paper,#fff);color:var(--blue,#005bff);border:0;border-radius:8px;min-height:54px;padding:16px 23px;font:700 14px Manrope,sans-serif;cursor:pointer;transition:background .2s,transform .2s}.ds-white:hover{background:#eaf1ff;transform:translateY(-2px)}.ds-white:active{transform:translateY(1px)}.ds-white:focus-visible{outline:3px solid var(--red,#dc0032);outline-offset:5px}@media(prefers-reduced-motion:reduce){.ds-white{transition:none}}"
+    },
+    {
+      "name": "Navigation",
+      "kind": "nav",
+      "description": "Compact desktop section links.",
+      "html": "<nav class=\"ds-nav\" aria-label=\"Разделы\"><a href=\"#how\">Как это работает</a><a href=\"#features\">Возможности</a><a href=\"#pricing\">Тарифы</a></nav>",
+      "css": ".ds-nav{display:flex;flex-wrap:wrap;gap:30px;font:600 13px Manrope,sans-serif}.ds-nav a{color:var(--ink,#17212e);text-decoration:none;transition:color .2s}.ds-nav a:hover{color:var(--blue,#005bff)}.ds-nav a:focus-visible{outline:3px solid var(--red,#dc0032);outline-offset:5px}@media(prefers-reduced-motion:reduce){.ds-nav a{transition:none}}"
+    },
+    {
+      "name": "FAQ Container",
+      "kind": "card",
+      "description": "Native disclosure with a cool flat surface.",
+      "html": "<details class=\"ds-faq\"><summary>Как подключить интеграцию?<span class=\"ds-plus\" aria-hidden=\"true\">+</span></summary><p>Откройте личный кабинет и настройте связь сервисов.</p></details>",
+      "css": ".ds-faq{padding:20px;border:0;background:var(--surface,#f6f8fb);border-radius:10px;color:var(--ink,#17212e);font-family:Manrope,sans-serif}.ds-faq summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:24px;font-size:14px;font-weight:650;min-height:28px}.ds-faq summary::-webkit-details-marker{display:none}.ds-plus{color:var(--blue,#005bff);transition:transform .2s}.ds-faq[open] .ds-plus{transform:rotate(45deg)}.ds-faq p{font-size:16px;line-height:1.75;margin:15px 0 0;max-width:560px}.ds-faq summary:focus-visible{outline:3px solid var(--red,#dc0032);outline-offset:5px}@media(prefers-reduced-motion:reduce){.ds-plus{transition:none}}"
+    },
+    {
+      "name": "Shipment Example",
+      "kind": "custom",
+      "refersTo": "shipment",
+      "description": "Illustrative order status surface from the route demonstration.",
+      "html": "<div class=\"ds-demo-context\"><article class=\"ds-shipment\"><div class=\"ds-shipment-label\">Путь вашего заказа <span>Пример</span></div><h3>Заказ готов.<br>Дальше — автоматически.</h3><p class=\"ds-status\"><span></span>Заказ готов к отгрузке</p></article></div>",
+      "css": ".ds-demo-context{background:var(--blue,#005bff);padding:24px;border-radius:16px;font-family:Manrope,sans-serif}.ds-shipment{background:var(--paper,#fff);color:var(--ink,#17212e);padding:20px;border-radius:12px}.ds-shipment-label{display:flex;justify-content:space-between;gap:12px;color:var(--muted,#586575);font-size:13px;font-weight:600}.ds-shipment h3{font-size:21px;line-height:1.5;letter-spacing:-.025em;margin:22px 0;font-weight:700}.ds-status{display:flex;align-items:center;gap:8px;color:#277552;background:#edf8f2;padding:11px;border-radius:6px;font-size:13px;margin:0}.ds-status>span{width:6px;height:6px;border-radius:50%;background:#2e9b6d}"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Connected Route",
+    "overview": "A calm, direct system built around the connection between OZON and DPD. Clear typography and spacious surfaces give technical information a simple, approachable presence. The supplied identity assets and the two brands' colors anchor the system.\n\nFlat surfaces and restrained geometry support a confident, uncluttered interface. Lines represent connections or ordered steps; the interactive shipment example turns the integration into a visible sequence. The language here records the implemented direction; it is not a separate brand approval.",
+    "keyCharacteristics": [
+      "Spacious, flat surfaces with cool tonal separation.",
+      "Dense Manrope headings and readable Russian body copy.",
+      "Blue actions, red brand accents, and explicit connection geometry.",
+      "Small, purposeful movement with reduced-motion support."
+    ],
+    "rules": [
+      {
+        "name": "The Connection Rule",
+        "body": "Use lines to explain a route, relationship, or sequence rather than as repeated decorative separators.",
+        "section": "colors"
+      }
+    ],
+    "dos": [
+      "Do use the supplied identity assets and established blue/red roles.",
+      "Do retain visible keyboard focus and reduced-motion behavior.",
+      "Do preserve word spacing when removing responsive line breaks.",
+      "Do use real service imagery and label illustrative shipment states."
+    ],
+    "donts": [
+      "Don't introduce shadows into the established flat surface system without a deliberate design change.",
+      "Don't replace the real login preview with a fabricated authenticated dashboard.",
+      "Don't present reference-site prices or test conditions as confirmed DPD terms."
+    ]
+  }
+}

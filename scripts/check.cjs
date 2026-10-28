@@ -12,6 +12,7 @@ const target=process.env.CHECK_URL||'http://127.0.0.1:4173';
   for(const width of [1440,1280,768,390,320]){
    const page=await browser.newPage({viewport:{width,height:900},reducedMotion:'reduce'});
    page.on('pageerror',e=>errors.push(e.message));
+   page.on('response',response=>{if(response.status()>=400)errors.push(`HTTP ${response.status()}: ${response.url()}`);});
    await page.goto(target,{waitUntil:'networkidle'});
    await page.evaluate(()=>document.fonts.ready);
    await page.evaluate(async()=>{for(const image of document.images){image.loading='eager';await image.decode().catch(()=>{});}});
@@ -23,7 +24,7 @@ const target=process.env.CHECK_URL||'http://127.0.0.1:4173';
    await page.evaluate(()=>Promise.all(document.getAnimations().map(a=>a.finished.catch(()=>{}))));
    const faq=page.locator('details').nth(1);await faq.locator('summary').click();
    if(!await faq.getAttribute('open')&&await faq.getAttribute('open')!== '')errors.push(`FAQ: ${width}`);
-   if(width<601){await page.getByRole('button',{name:'Открыть меню',exact:true}).click();if(!await page.locator('#mobile-nav').isVisible())errors.push('Мобильное меню');await page.keyboard.press('Escape');}
+   if(width<=800){await page.getByRole('button',{name:'Открыть меню',exact:true}).click();if(!await page.locator('#mobile-nav').isVisible())errors.push(`Меню: ${width}`);await page.keyboard.press('Escape');if(await page.locator('#mobile-nav').isVisible())errors.push(`Закрытие меню: ${width}`);}
    await page.evaluate(()=>scrollTo(0,0));
    await page.screenshot({path:`artifacts/${width}.png`,fullPage:true});
    console.log(`Проверено ${width}px: ${JSON.stringify(result)}`);

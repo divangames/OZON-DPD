@@ -4,6 +4,13 @@ const fs=require('node:fs');
 const os=require('node:os');
 const path=require('node:path');
 const root=path.resolve(__dirname,'..');
+// Повторяет только сетевые запросы с ограниченным ожиданием.
+async function request(url,options){
+ for(let attempt=0;attempt<3;attempt++){
+  try{return await fetch(url,{...options,signal:AbortSignal.timeout(20000)});}
+  catch(error){if(attempt===2)throw new Error(`GitHub API недоступен: ${error.message}. Ветка опубликована; включите gh-pages в Settings → Pages или повторите команду позже.`);await new Promise(resolve=>setTimeout(resolve,1000*(attempt+1)));}
+ }
+}
 // Выполняет команды без оболочки и останавливается при ошибке.
 function git(args,cwd=root){return execFileSync('git',args,{cwd,encoding:'utf8'}).trim();}
 // Берёт доступ из Git Credential Manager, не печатая токен в консоль.
@@ -17,10 +24,10 @@ async function enablePages(token){
  if(!token){console.log('Ветка gh-pages опубликована. В Settings → Pages выберите gh-pages / root.');return;}
  const endpoint='https://api.github.com/repos/divangames/OZON-DPD/pages';
  const headers={Authorization:`Bearer ${token}`,Accept:'application/vnd.github+json','X-GitHub-Api-Version':'2022-11-28'};
- const response=await fetch(endpoint,{headers});
+ const response=await request(endpoint,{headers});
  if(!response.ok&&response.status!==404)throw new Error(`Проверка Pages: HTTP ${response.status}`);
  const method=response.status===404?'POST':'PUT';
- const result=await fetch(endpoint,{method,headers,body:JSON.stringify({build_type:'legacy',source:{branch:'gh-pages',path:'/'}})});
+ const result=await request(endpoint,{method,headers,body:JSON.stringify({build_type:'legacy',source:{branch:'gh-pages',path:'/'}})});
  if(!result.ok)throw new Error(`Ветка опубликована, но настройка Pages требует внимания: HTTP ${result.status}. Settings → Pages → gh-pages / root.`);
  console.log('GitHub Pages: https://divangames.github.io/OZON-DPD/');
 }
@@ -40,4 +47,5 @@ async function deploy(){
   await enablePages(credential());
  }finally{fs.rmSync(temp,{recursive:true,force:true});}
 }
-deploy().catch(error=>{console.error(error.message);process.exitCode=1});
+module.exports={enablePages,credential};
+if(require.main===module)deploy().catch(error=>{console.error(error.message);process.exitCode=1});
