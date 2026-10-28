@@ -1,0 +1,4 @@
+# Правила индексирования публичного сайта.
+User-agent: *
+Allow: /
+Sitemap: https://dpd-ozon.ru/sitemap.xml

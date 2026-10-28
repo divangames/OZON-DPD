@@ -1,0 +1,9 @@
+node_modules/
+dist/
+info/
+.private/
+.taste-skill/
+.impeccable/review/
+artifacts/
+*.log
+.env*

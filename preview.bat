@@ -1,0 +1,4 @@
+@echo off
+rem Просмотр готовой сборки.
+cd /d "%~dp0"
+call npm run preview -- --open

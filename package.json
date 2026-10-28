@@ -1,0 +1,26 @@
+{
+  "name": "ozon-dpd",
+  "version": "1.0.0",
+  "description": "Сайт-презентация интеграции OZON × DPD",
+  "main": "index.js",
+  "scripts": {
+    "dev": "vite --host 127.0.0.1",
+    "build": "vite build --base=./",
+    "preview": "vite preview --host 127.0.0.1",
+    "deploy:pages": "node scripts/deploy-pages.cjs",
+    "deploy:vps": "node scripts/deploy-vps.cjs",
+    "check": "node scripts/check.cjs"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "devDependencies": {
+    "@playwright/test": "^1.64.1",
+    "sharp": "^0.35.5",
+    "vite": "^8.3.5"
+  },
+  "dependencies": {
+    "ssh2": "^1.17.0"
+  }
+}
