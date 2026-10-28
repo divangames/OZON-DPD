@@ -9,7 +9,8 @@
     "preview": "vite preview --host 127.0.0.1",
     "deploy:pages": "node scripts/deploy-pages.cjs",
     "deploy:vps": "node scripts/deploy-vps.cjs",
-    "check": "node scripts/check.cjs"
+    "check": "node scripts/check.cjs",
+    "check:motion": "node scripts/check-motion.cjs"
   },
   "keywords": [],
   "author": "",
@@ -21,6 +22,7 @@
     "vite": "^8.3.5"
   },
   "dependencies": {
+    "motion": "^14.7.1",
     "ssh2": "^1.17.0",
     "three": "^0.186.1"
   }

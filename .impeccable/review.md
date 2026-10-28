@@ -13,3 +13,8 @@ The implemented world is an open sculptural WebGL hero on studio gray, a near-bl
 Read-only authenticated cabinet inspection confirmed cheap-service auto-choice, separate packages, simple dimension calculation, Telegram registration-error notifications, product import and delivery-method links. Four shipping captures (`cabinet-dpd.webp`, `cabinet-ozon.webp`, `cabinet-tariffs.webp`, `cabinet-products.webp`) had credentials and identifiers masked during capture. A privacy reviewer inspected each and found no visible private fields. This does not authorize publishing raw captures, access files or sessions.
 
 Evidence limits: actual end-to-end order processing was not tested. The process widget is a demonstration. Prices, the extra-shop fee and test period still originate from cdek-ozon.ru, pending confirmation of DPD terms; the page visibly attributes them and asks visitors to confirm current terms. Review does not establish those commercial terms or operational delivery guarantees.
+
+
+## Follow-up: layout and mobile motion
+
+The user reported an overlap the earlier review missed. The hero now uses independent grid areas and a separate legend, not position offsets. This follow-up is an in-thread review: 10 widths from 320 to 1920 passed, including rectangle-intersection checks. Desktop, intermediate and mobile rendered crops were inspected. Real browser mobile touch input verified drag release and native vertical scrolling; three animated scenes, reduced motion and no-WebGL fallback passed. Detector findings are advisory size/color documentation drift; this is not a claim of zero findings. No physical handset was available.
