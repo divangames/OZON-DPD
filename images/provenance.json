@@ -1,0 +1,6 @@
+{
+  "logo.svg": {"origin":"Предоставлен пользователем: images/logo.svg","usage":"Логотип сервиса OZON × DPD"},
+  "favicon.svg": {"origin":"Предоставлен пользователем: images/favicon.svg"},
+  "favicon.png": {"origin":"Предоставлен пользователем: images/favicon.png"},
+  "cabinet-login.webp": {"origin":"Скриншот реального экрана входа https://space.dpd-ozon.ru/, 28 октября 2026; Playwright, 1440 × 1000; WebP quality 88","usage":"Демонстрация входа в кабинет, без персональных данных"}
+}
