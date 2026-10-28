@@ -23,6 +23,7 @@ export function selectDemo(index,reduced){
 
 // A single timer prevents double advancement; explicit pause survives scrolling.
 export function initDemoPlayback(select,reduced){
+ const readingInterval=6000,manualReadingInterval=10000;
  const card=document.querySelector('.order-receipt'),button=card.querySelector('.demo-pause');
  const caption=card.querySelector('.demo-playback>span');
  let visible=false,paused=false,timer=0,manualUntil=0;
@@ -30,7 +31,7 @@ export function initDemoPlayback(select,reduced){
   clearTimeout(timer);
   const keyboardFocus=document.querySelector('#how :focus-visible');
   if(!visible||paused||reduced.matches||document.hidden||keyboardFocus)return;
-  timer=setTimeout(()=>{select((Number(card.dataset.demoState)+1)%3,false);schedule();},Math.max(4000,manualUntil-Date.now()));
+  timer=setTimeout(()=>{select((Number(card.dataset.demoState)+1)%3,false);schedule();},Math.max(readingInterval,manualUntil-Date.now()));
  }
  function refresh(){
   button.disabled=reduced.matches;
@@ -47,5 +48,5 @@ export function initDemoPlayback(select,reduced){
  reduced.addEventListener('change',refresh);
  document.querySelector('#demo-status').setAttribute('aria-live','off');
  refresh();
- return index=>{manualUntil=Date.now()+8000;select(index,true);schedule();};
+ return index=>{manualUntil=Date.now()+manualReadingInterval;select(index,true);schedule();};
 }
