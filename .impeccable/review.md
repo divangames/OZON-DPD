@@ -1,5 +1,9 @@
 # Finish review · 2026-10-28
 
+## Mobile animation follow-up
+
+After enlargement, 10-second canvas alpha-bound sampling found lower-scene clipping at 320–430px. Camera framing now reserves space for the animation envelope. Repeated checks at 320/360/390/430px (about 60 samples per scene) measured minimum lower-scene margins of 19px or more; no scene/text intersections, document overflow or JavaScript errors. Extreme drags at 320/390px retained at least 22px for lower scenes. Footer text is now 14px / 25.2px on phones, contact links have 44px hit targets. Rendered mobile crops were inspected. Reduced-motion, drag release, native scrolling and WebGL fallback checks passed. Verification used Chromium mobile emulation, not physical handsets.
+
 Disposition: **SHIP** for the replacement presentation site, within the review scope below. This is a reviewer verdict, not user approval or a universal guarantee.
 
 The independent reviewer found the new direction convincingly modern. Its final verdict-pass confirmed the two requested corrections: art-stamp collisions at 1280/768px are resolved, and the tablet OZON label is clear. New crops supported the verdict; no remaining material blockers were identified in that review.

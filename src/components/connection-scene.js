@@ -46,7 +46,7 @@ export function initScene(container,variant='links'){
   if(flow){flow.reset();const distance=.135+Math.sin(time*.8)*.065;flow.addBall(.5-distance,.5,.5,1.2,12,new THREE.Color(0x005bff));flow.addBall(.5+distance,.5+Math.sin(time*.8)*.025,.5,1.2,12,new THREE.Color(0xdc0032));flow.update();}
  }
  // Камера следует пропорциям контейнера, без скачков внешней разметки.
- function resize(){const width=container.clientWidth,height=container.clientHeight;if(!width||!height)return;renderer.setSize(width,height);camera.aspect=width/height;camera.position.z=variant==='links'?Math.max(12,10/camera.aspect):Math.max(6.8,(variant==='flow'?11:6.2)/camera.aspect);camera.lookAt(0,0,0);camera.updateProjectionMatrix();pose(elapsed);renderer.render(scene,camera);}
+ function resize(){const width=container.clientWidth,height=container.clientHeight;if(!width||!height)return;renderer.setSize(width,height);camera.aspect=width/height;camera.position.z=variant==='links'?Math.max(12,10/camera.aspect):Math.max(8,(variant==='flow'?13:8.1)/camera.aspect);camera.lookAt(0,0,0);camera.updateProjectionMatrix();pose(elapsed);renderer.render(scene,camera);}
  new ResizeObserver(resize).observe(container);resize();container.classList.add('scene-ready');
  const canvas=renderer.domElement;
  // Horizontal touch drag has bounded rubber resistance; vertical page scrolling stays native.

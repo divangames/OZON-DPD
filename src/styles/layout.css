@@ -55,6 +55,7 @@
 .footer-back>a{min-height:44px;display:flex;align-items:center;gap:14px}
 .footer-back .icon{width:16px;height:16px;transform:rotate(-90deg)}
 @media(max-width:800px){.footer-details{grid-template-columns:1fr;gap:28px}.footer-contacts{grid-row:1}.footer-back{margin-top:10px}}
+@media(max-width:600px){.footer-legal,.footer-contacts{font-size:14px}.footer-legal{line-height:1.8}.footer-contacts>a{min-height:44px}}
 .footer a:hover{color:var(--blue)}
 .footer-bottom{display:flex;align-items:flex-end;justify-content:space-between;gap:35px;color:var(--muted);font-size:13px;margin-top:40px}
 .footer-bottom p{font-size:13px;line-height:1.8}
