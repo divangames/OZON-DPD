@@ -2,5 +2,9 @@
   "logo.svg": {"origin":"Предоставлен пользователем: images/logo.svg","usage":"Логотип сервиса OZON × DPD"},
   "favicon.svg": {"origin":"Предоставлен пользователем: images/favicon.svg"},
   "favicon.png": {"origin":"Предоставлен пользователем: images/favicon.png"},
-  "cabinet-login.webp": {"origin":"Скриншот реального экрана входа https://space.dpd-ozon.ru/, 28 октября 2026; Playwright, 1440 × 1000; WebP quality 88","usage":"Демонстрация входа в кабинет, без персональных данных"}
+  "cabinet-dpd.webp": {"origin":"Авторизованный скриншот https://space.dpd-ozon.ru/integration/DPD, 28 октября 2026; Playwright; 900 × 720; WebP quality 90","privacy":"Учетная запись, поля ввода, компания и номер клиента скрыты при съёмке"},
+  "cabinet-ozon.webp": {"origin":"Авторизованный скриншот https://space.dpd-ozon.ru/integration/OZON, 28 октября 2026; Playwright; 900 × 720; WebP quality 90","privacy":"Учетная запись, поля ввода, компания и реквизиты скрыты при съёмке"},
+  "cabinet-tariffs.webp": {"origin":"Авторизованный скриншот https://space.dpd-ozon.ru/tariff, 28 октября 2026; Playwright; 900 × 720; WebP quality 90","privacy":"Учетная запись и поля ввода скрыты при съёмке"},
+  "cabinet-products.webp": {"origin":"Авторизованный скриншот https://space.dpd-ozon.ru/products, 28 октября 2026; Playwright; 900 × 720; WebP quality 90","privacy":"Пустой список товаров реального аккаунта, без вымышленных заказов"},
+  "connection-scene": {"origin":"Авторская WebGL-сцена Three.js, src/components/connection-scene.js","usage":"Визуальная метафора связи двух API; не изображение реального устройства"}
 }
