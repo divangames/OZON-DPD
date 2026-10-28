@@ -23,6 +23,15 @@
  .mobile-nav{position:absolute;z-index:20;top:85px;left:30px;right:30px;border-radius:20px;padding:20px 25px;background:var(--paper);display:flex;flex-direction:column}.mobile-nav a{padding:15px 0;font-size:15px}
  .hero h1{font-size:68px}.hero-copy{width:80%}.hero-art{top:185px;right:-35px;height:420px}.label-ozon{top:0;left:56%}.art-stamp{left:32%}.hero-bottom{margin-top:65px}
 }
+/* Narrow tablets need stacked content before the phone navigation/type scale. */
+@media(min-width:601px) and (max-width:760px){
+ .process-layout,.capabilities,.requirements,.faq{grid-template-columns:1fr;gap:36px}
+ .workspace{display:flex;flex-direction:column;align-items:stretch;gap:35px}
+ .workspace-frame{transform:none}.workspace-copy>p{max-width:500px}
+ .capability-blue{min-height:0}.capability-blue p{max-width:440px}
+ .closing{flex-direction:column;align-items:flex-start;gap:30px}
+ .closing-action{width:100%;justify-content:space-between}
+}
 @media(max-width:600px){
  .shell{width:calc(100% - 40px)}.header{height:82px;gap:12px}.header .logo img{width:142px}.cabinet-link{border:0;padding:8px 0;font-size:11px;gap:0}.cabinet-link .icon{display:none}.menu-toggle{width:40px;height:40px;min-height:44px}.mobile-nav{inset:78px 20px auto}
  .hero{padding-top:35px;min-height:0}.hero-copy{width:100%}.hero h1{font-size:clamp(43px,11vw,65px);line-height:1.04;font-weight:600}.hero-lead{max-width:360px;margin-top:23px;line-height:1.85}.hero .button{margin-top:24px;min-height:55px;font-size:13px;padding-left:21px;gap:25px}.button-arrow{width:39px;height:39px}.hero-secondary{font-size:13px;margin-top:9px;min-height:40px}

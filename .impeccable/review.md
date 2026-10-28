@@ -1,5 +1,9 @@
 # Finish review · 2026-10-28
 
+## Desktop and tablet follow-up
+
+Reviewed 18 viewport widths from 600 to 2560px, including both sides of layout breakpoints. A visual inspection exposed cramped columns and clipped brand text at 601px despite no document overflow. Content sections now stack between 601 and 760px; larger layouts remain unchanged. Footer body text is 13px on desktop and 14px through 800px. Text-range checks (excluding hidden details content and same-heading font-box overlap), full-page captures and footer crops found no remaining cross-element text intersections or horizontal overflow. Ten-second canvas sampling at representative tablet/desktop widths found no animation clipping or scene/text overlap. Browser-emulation evidence, not a physical-device certification.
+
 ## Mobile animation follow-up
 
 After enlargement, 10-second canvas alpha-bound sampling found lower-scene clipping at 320–430px. Camera framing now reserves space for the animation envelope. Repeated checks at 320/360/390/430px (about 60 samples per scene) measured minimum lower-scene margins of 19px or more; no scene/text intersections, document overflow or JavaScript errors. Extreme drags at 320/390px retained at least 22px for lower scenes. Footer text is now 14px / 25.2px on phones, contact links have 44px hit targets. Rendered mobile crops were inspected. Reduced-motion, drag release, native scrolling and WebGL fallback checks passed. Verification used Chromium mobile emulation, not physical handsets.
