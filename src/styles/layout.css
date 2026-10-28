@@ -50,6 +50,12 @@
 .footer-registration{margin-top:20px;color:var(--ink)}
 .footer-contacts{font-style:normal;font-size:13px;display:flex;flex-direction:column;align-items:flex-start;gap:8px}
 .footer-contacts>span{font-weight:600;margin-bottom:6px}
+.contact-links{display:flex;gap:12px}
+.contact-icon{display:grid;place-items:center;width:48px;height:48px;border-radius:50%;color:var(--paper);transition:background .2s ease}
+.contact-mail{background:var(--red)}
+.contact-telegram{background:var(--blue)}
+.footer .contact-icon:hover{color:var(--paper)}
+@media(hover:hover) and (pointer:fine){.contact-mail:hover{background:#b60029}.contact-telegram:hover{background:var(--blue-deep)}}
 .footer-contacts>a{min-height:36px;display:flex;align-items:center;overflow-wrap:anywhere;max-width:100%}
 .footer-back{display:flex;justify-content:flex-end;margin-top:20px;font-size:13px}
 .footer-back>a{min-height:44px;display:flex;align-items:center;gap:14px}

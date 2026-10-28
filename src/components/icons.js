@@ -11,6 +11,8 @@ const paths = {
   play:'<path d="m9 5 10 7-10 7V5Z"/>',
   menu:'<path d="M4 7h16M4 12h16M4 17h16"/>',
   close:'<path d="m6 6 12 12M6 18 18 6"/>',
+  mail:'<rect x="3" y="5" width="18" height="14" rx="3"/><path d="m4 7 8 6 8-6"/>',
+  telegram:'<path d="m21 3-4 18-6-6-4 3 1-7 13-8Z"/><path d="m3 10 18-7-10 12M3 10l5 1"/>',
 };
 // Возвращает SVG с неизменным размером и доступностью, заданной внешним контролом.
 export const icon = (name, cls='') => `<svg class="icon ${cls}" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${paths[name] || paths.arrow}</svg>`;

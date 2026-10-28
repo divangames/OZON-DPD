@@ -1,6 +1,7 @@
 // Доступные действия: этапы обработки, реальные экраны и навигация.
 import {icon} from './icons';
 import {steps} from './content';
+import {selectDemo} from './process-demo';
 // Инициализирует состояния презентации, не меняя данные внешнего сервиса.
 export function initInteractions(){
  const reduced=matchMedia('(prefers-reduced-motion: reduce)');
@@ -10,9 +11,11 @@ export function initInteractions(){
  menuButton.addEventListener('click',()=>setMenu(menu.hidden));
  menu.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>setMenu(false)));
  document.addEventListener('keydown',event=>{if(event.key==='Escape')setMenu(false);});
- document.querySelectorAll('[data-step]').forEach(button=>button.addEventListener('click',()=>{
-  document.querySelectorAll('[data-step]').forEach(item=>{item.classList.toggle('active',item===button);item.setAttribute('aria-pressed',String(item===button));});
-  document.querySelector('#demo-status').textContent=steps[Number(button.dataset.step)][3];
+ document.querySelectorAll('[data-step],[data-demo-step]').forEach(button=>button.addEventListener('click',()=>{
+  const index=Number(button.dataset.step??button.dataset.demoStep);
+  document.querySelectorAll('[data-step]').forEach(item=>{const active=Number(item.dataset.step)===index;item.classList.toggle('active',active);item.setAttribute('aria-pressed',String(active));});
+  selectDemo(index,reduced.matches);
+  document.querySelector('#demo-status').textContent=steps[index][3];
  }));
  const tabs=[...document.querySelectorAll('[data-screen]')];
  // Меняет настоящий скриншот и обеспечивает управление вкладками с клавиатуры.
