@@ -26,7 +26,8 @@ const target=process.env.CHECK_URL||'http://127.0.0.1:4173';
    if(await page.locator('#demo-status').textContent()!=='Заказ готов к отправке')errors.push(`Демонстрация: ${width}`);
    await page.getByRole('button',{name:'1 Заказ',exact:true}).click();
    for(const id of ['ozon','tariffs','products','dpd']){await page.locator(`[data-screen="${id}"]`).click();if(!await page.locator(`#screen-${id}`).isVisible())errors.push(`Экран ${id}: ${width}`);}
-   for(const [volume,price] of [[300,'3 800'],[1000,'5 800'],[500,'4 800']]){await page.locator(`[data-volume="${volume}"]`).click();if(await page.locator('#selected-price').textContent()!==price)errors.push(`Тариф ${volume}: ${width}`);}
+   if(await page.locator('#pricing,[data-volume],a[href="#pricing"]').count())errors.push(`Платные тарифы остались: ${width}`);
+   if(!await page.locator('.hero-free').isVisible())errors.push(`Нет бесплатного сервиса: ${width}`);
    await page.evaluate(()=>Promise.all(document.getAnimations().map(a=>a.finished.catch(()=>{}))));
    const faq=page.locator('details').nth(1);await faq.locator('summary').click();
    if(!await faq.getAttribute('open')&&await faq.getAttribute('open')!== '')errors.push(`FAQ: ${width}`);

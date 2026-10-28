@@ -1,4 +1,4 @@
-// Доступные действия: этапы обработки, реальные экраны, тарифы и навигация.
+// Доступные действия: этапы обработки, реальные экраны и навигация.
 import {icon} from './icons';
 import {steps} from './content';
 // Инициализирует состояния презентации, не меняя данные внешнего сервиса.
@@ -21,12 +21,6 @@ export function initInteractions(){
   button.addEventListener('click',()=>selectScreen(button));
   button.addEventListener('keydown',event=>{const move={ArrowRight:1,ArrowDown:1,ArrowLeft:-1,ArrowUp:-1}[event.key];if(move||event.key==='Home'||event.key==='End'){event.preventDefault();const next=tabs[event.key==='Home'?0:event.key==='End'?tabs.length-1:(index+move+tabs.length)%tabs.length];selectScreen(next);next.focus();}});
  });
- document.querySelectorAll('[data-volume]').forEach(button=>button.addEventListener('click',()=>{
-  document.querySelectorAll('[data-volume]').forEach(item=>{item.classList.toggle('active',item===button);item.setAttribute('aria-pressed',String(item===button));});
-  document.querySelector('#selected-price').textContent=button.dataset.price;
-  document.querySelector('#selected-volume').textContent=Number(button.dataset.volume).toLocaleString('ru-RU');
-  document.querySelector('#tariff-link').setAttribute('aria-label',`Подключить тариф до ${button.dataset.volume} отправлений`);
- }));
  // Содержимое видно до анимации и при reduced motion; появления запускаются однократно.
- if(!reduced.matches){const observer=new IntersectionObserver(entries=>entries.forEach(entry=>{if(entry.isIntersecting){entry.target.animate([{opacity:.4,transform:'translateY(24px)'},{opacity:1,transform:'translateY(0)'}],{duration:650,easing:'cubic-bezier(.23,1,.32,1)'});observer.unobserve(entry.target);}}),{threshold:.13});document.querySelectorAll('.section h2,.workspace-visual,.capability-blue,.capability-list article,.requirements li,.pricing-console,.faq-items,.closing h2').forEach(item=>observer.observe(item));}
+ if(!reduced.matches){const observer=new IntersectionObserver(entries=>entries.forEach(entry=>{if(entry.isIntersecting){entry.target.animate([{opacity:.4,transform:'translateY(24px)'},{opacity:1,transform:'translateY(0)'}],{duration:650,easing:'cubic-bezier(.23,1,.32,1)'});observer.unobserve(entry.target);}}),{threshold:.13});document.querySelectorAll('.section h2,.workspace-visual,.capability-blue,.capability-list article,.requirements li,.faq-items,.closing h2').forEach(item=>observer.observe(item));}
 }

@@ -1,6 +1,8 @@
 /* Independent hero columns keep every label outside the text and sculpture. */
 .hero{display:grid;grid-template-columns:1.12fr 1fr;align-items:center;gap:24px;min-height:0;padding-top:55px}
 .hero-copy{width:100%;min-width:0;pointer-events:auto}
+.hero-free{font-size:14px;font-weight:600;color:var(--red);margin-top:24px}
+.hero-free+.hero-lead{margin-top:12px}
 .hero h1{font-size:clamp(56px,5.45vw,86px);line-height:1.06;text-wrap:nowrap}
 .hero-art{position:relative;inset:auto;width:100%;height:490px;margin:0;min-width:0}
 .hero-art canvas{animation:none}
@@ -19,9 +21,9 @@
 .capability-blue p{color:white}
 .capability-brand{padding-top:0;font-size:34px;justify-content:space-between;margin-top:0}
 .capability-brand>span{color:#fff9}
-.parcel-scene{height:260px;margin-block:0 10px}
+.parcel-scene{height:320px;margin-block:0 10px}
 .parcel-scene .scene-fallback{color:white}
-.flow-scene{height:230px;max-width:420px;margin-top:12px}
+.flow-scene{height:290px;max-width:520px;margin-top:12px}
 .screen-tab[data-screen=dpd].active{color:var(--red)}
 .process-step[data-step="1"].active .step-arrow{background:var(--red);border-color:var(--red)}
 .process-step[data-step="1"].active .step-index{color:#ff809d}
@@ -44,7 +46,7 @@
  .art-stamp{display:block;inset:auto 0 0;font-size:11px;white-space:normal}
  .hero-bottom{margin:0;padding-block:6px 28px;font-size:11px}
  .capability-blue{padding:28px;min-height:0}.capability-brand{font-size:32px;padding-top:0}
- .parcel-scene{height:230px;margin-block:5px}.flow-scene{height:200px;max-width:none;margin-top:10px}
+ .parcel-scene{height:280px;margin-block:5px}.flow-scene{height:270px;max-width:none;margin-top:10px}
  .screen-tab[data-screen=dpd].active{border-color:var(--red)}
  .closing{padding-top:0}.closing-arrow{width:72px;height:72px}
 }

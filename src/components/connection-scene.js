@@ -38,13 +38,15 @@ export function initScene(container,variant='links'){
  const floor=new THREE.Mesh(new THREE.PlaneGeometry(60,60),new THREE.ShadowMaterial({opacity:.13}));floor.rotation.x=-Math.PI/2;floor.position.y=-2.7;floor.receiveShadow=true;scene.add(floor);
  let visible=true,frame=0,targetX=0,targetY=0,currentX=0,currentY=0,velocityX=0,velocityY=0,lastTime=0,elapsed=0,drag=null;
  const baseY=variant==='parcel'?.4:-.2,baseX=variant==='parcel'?.15:.05;
+ const mobile=matchMedia('(max-width:600px)');
  function pose(time){
-  sculpture.rotation.y=baseY+currentX+Math.sin(time*.7)*.07;sculpture.rotation.x=baseX+currentY;
-  sculpture.position.y=Math.sin(time*1.2)*.13;
+  const sway=mobile.matches?.2:.16;
+  sculpture.rotation.y=baseY+currentX+Math.sin(time*.7)*sway;sculpture.rotation.x=baseX+currentY+Math.sin(time*.55)*.06;
+  sculpture.position.y=Math.sin(time*1.2)*(mobile.matches?.23:.19);
   if(flow){flow.reset();const distance=.135+Math.sin(time*.8)*.065;flow.addBall(.5-distance,.5,.5,1.2,12,new THREE.Color(0x005bff));flow.addBall(.5+distance,.5+Math.sin(time*.8)*.025,.5,1.2,12,new THREE.Color(0xdc0032));flow.update();}
  }
  // Камера следует пропорциям контейнера, без скачков внешней разметки.
- function resize(){const width=container.clientWidth,height=container.clientHeight;if(!width||!height)return;renderer.setSize(width,height);camera.aspect=width/height;camera.position.z=variant==='links'?Math.max(12,10/camera.aspect):variant==='parcel'?10:9;camera.lookAt(0,0,0);camera.updateProjectionMatrix();pose(elapsed);renderer.render(scene,camera);}
+ function resize(){const width=container.clientWidth,height=container.clientHeight;if(!width||!height)return;renderer.setSize(width,height);camera.aspect=width/height;camera.position.z=variant==='links'?Math.max(12,10/camera.aspect):Math.max(6.8,(variant==='flow'?11:6.2)/camera.aspect);camera.lookAt(0,0,0);camera.updateProjectionMatrix();pose(elapsed);renderer.render(scene,camera);}
  new ResizeObserver(resize).observe(container);resize();container.classList.add('scene-ready');
  const canvas=renderer.domElement;
  // Horizontal touch drag has bounded rubber resistance; vertical page scrolling stays native.
