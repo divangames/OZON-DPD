@@ -32,7 +32,7 @@
 .hero-bottom>a{display:grid;place-items:center;border:1px solid var(--line);width:40px;height:40px;border-radius:50%;color:var(--ink)}
 .hero-bottom>a>.icon{transform:rotate(90deg);width:17px;height:17px}
 .small-cross{font-size:17px;color:var(--ink);margin-inline:10px}
-.closing{padding-block:110px 105px;display:flex;align-items:flex-end;justify-content:space-between;gap:50px}
+.closing{padding-block:0 105px;display:flex;align-items:flex-end;justify-content:space-between;gap:50px}
 .closing h2{font-size:clamp(50px,6.9vw,100px);font-weight:500;line-height:1.04}
 .closing h2 span{color:var(--blue)}
 .closing p{font-size:16px;margin-top:25px}
@@ -52,10 +52,11 @@
 .footer-contacts>span{font-weight:600;margin-bottom:6px}
 .contact-links{display:flex;gap:12px}
 .contact-icon{display:grid;place-items:center;width:48px;height:48px;border-radius:50%;color:var(--paper);transition:background .2s ease}
-.contact-mail{background:var(--red)}
+.contact-max{background:#6255d9}
+.contact-max img{display:block;width:24px;height:24px}
 .contact-telegram{background:var(--blue)}
 .footer .contact-icon:hover{color:var(--paper)}
-@media(hover:hover) and (pointer:fine){.contact-mail:hover{background:#b60029}.contact-telegram:hover{background:var(--blue-deep)}}
+@media(hover:hover) and (pointer:fine){.contact-max:hover{background:#4f42bd}.contact-telegram:hover{background:var(--blue-deep)}}
 .footer-contacts>a{min-height:36px;display:flex;align-items:center;overflow-wrap:anywhere;max-width:100%}
 .footer-back{display:flex;justify-content:flex-end;margin-top:20px;font-size:13px}
 .footer-back>a{min-height:44px;display:flex;align-items:center;gap:14px}

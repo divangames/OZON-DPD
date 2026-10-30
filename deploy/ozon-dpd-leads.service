@@ -1,0 +1,24 @@
+[Unit]
+Description=OZON DPD contact form to Telegram
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+User=www-data
+Group=www-data
+WorkingDirectory=/opt/ozon-dpd-leads
+EnvironmentFile=/etc/ozon-dpd-leads.env
+Environment=LEADS_DB=/var/lib/ozon-dpd-leads/leads.sqlite3
+Environment=LEADS_PORT=4192
+ExecStart=/usr/bin/python3 /opt/ozon-dpd-leads/leads.py
+Restart=on-failure
+RestartSec=3
+UMask=0077
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ProtectHome=true
+ReadWritePaths=/var/lib/ozon-dpd-leads
+
+[Install]
+WantedBy=multi-user.target

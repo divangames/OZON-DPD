@@ -27,6 +27,4 @@ export function initInteractions(){
   button.addEventListener('click',()=>selectScreen(button));
   button.addEventListener('keydown',event=>{const move={ArrowRight:1,ArrowDown:1,ArrowLeft:-1,ArrowUp:-1}[event.key];if(move||event.key==='Home'||event.key==='End'){event.preventDefault();const next=tabs[event.key==='Home'?0:event.key==='End'?tabs.length-1:(index+move+tabs.length)%tabs.length];selectScreen(next);next.focus();}});
  });
- // Содержимое видно до анимации и при reduced motion; появления запускаются однократно.
- if(!reduced.matches){const observer=new IntersectionObserver(entries=>entries.forEach(entry=>{if(entry.isIntersecting){entry.target.animate([{opacity:.4,transform:'translateY(24px)'},{opacity:1,transform:'translateY(0)'}],{duration:650,easing:'cubic-bezier(.23,1,.32,1)'});observer.unobserve(entry.target);}}),{threshold:.13});document.querySelectorAll('.section h2,.workspace-visual,.capability-blue,.capability-list article,.requirements li,.faq-items,.closing h2').forEach(item=>observer.observe(item));}
 }

@@ -10,7 +10,11 @@
     "deploy:pages": "node scripts/deploy-pages.cjs",
     "deploy:vps": "node scripts/deploy-vps.cjs",
     "check": "node scripts/check.cjs",
-    "check:motion": "node scripts/check-motion.cjs"
+    "check:motion": "node scripts/check-motion.cjs",
+    "check:tutorials": "node scripts/check-tutorials.cjs",
+    "check:form": "node scripts/check-form.cjs",
+    "check:gallery": "node scripts/check-gallery-faq.cjs",
+    "deploy:leads": "node scripts/deploy-leads.cjs"
   },
   "keywords": [],
   "author": "",
@@ -22,7 +26,8 @@
     "vite": "^8.3.5"
   },
   "dependencies": {
-    "motion": "^14.7.1",
+    "gsap": "^3.15.0",
+    "lenis": "^1.3.27",
     "ssh2": "^1.17.0",
     "three": "^0.186.1"
   }

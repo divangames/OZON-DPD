@@ -45,7 +45,11 @@ async function deploy(){
   if(existing){git(['fetch','origin','gh-pages'],temp);git(['reset','--soft','FETCH_HEAD'],temp);}
   git(['add','--all'],temp);git(['commit','--allow-empty','-m','Deploy OZON × DPD website'],temp);git(['push','origin','HEAD:gh-pages'],temp);
   await enablePages(credential());
- }finally{fs.rmSync(temp,{recursive:true,force:true});}
+ }finally{
+  const temporaryRoot=path.resolve(os.tmpdir()),resolved=path.resolve(temp);
+  if(path.dirname(resolved)!==temporaryRoot||!path.basename(resolved).startsWith('ozon-dpd-pages-'))throw new Error('Небезопасный путь очистки временной публикации.');
+  fs.rmSync(resolved,{recursive:true,force:true});
+ }
 }
 module.exports={enablePages,credential};
 if(require.main===module)deploy().catch(error=>{console.error(error.message);process.exitCode=1});

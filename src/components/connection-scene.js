@@ -14,7 +14,7 @@ function linkGeometry(size,band,depth){
 export function initScene(container,variant='links'){
  let renderer;try{renderer=new THREE.WebGLRenderer({antialias:true,alpha:true,powerPreference:'low-power'});}catch{return;}
  const reduced=matchMedia('(prefers-reduced-motion: reduce)');
- renderer.setPixelRatio(Math.min(devicePixelRatio,1.5));renderer.setClearColor(0xf5f6f8,0);renderer.outputColorSpace=THREE.SRGBColorSpace;renderer.toneMapping=THREE.NeutralToneMapping;renderer.toneMappingExposure=.85;renderer.shadowMap.enabled=variant==='links';renderer.shadowMap.type=THREE.PCFSoftShadowMap;renderer.domElement.setAttribute('aria-hidden','true');container.prepend(renderer.domElement);
+ renderer.setPixelRatio(Math.min(devicePixelRatio,1.5));renderer.setClearColor(0xf5f6f8,0);renderer.outputColorSpace=THREE.SRGBColorSpace;renderer.toneMapping=THREE.NeutralToneMapping;renderer.toneMappingExposure=.85;renderer.shadowMap.enabled=variant==='links';renderer.shadowMap.type=THREE.PCFShadowMap;renderer.domElement.setAttribute('aria-hidden','true');container.prepend(renderer.domElement);
  const scene=new THREE.Scene(),camera=new THREE.PerspectiveCamera(34,1,.1,100);camera.position.set(1.8,3.1,11.8);camera.lookAt(0,0,0);
  const pmrem=new THREE.PMREMGenerator(renderer),environment=new RoomEnvironment();scene.environment=pmrem.fromScene(environment,.04).texture;environment.dispose();pmrem.dispose();
  scene.environmentIntensity=.6;scene.add(new THREE.HemisphereLight(0xffffff,0x8190ad,.6));

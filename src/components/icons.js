@@ -8,6 +8,7 @@ const paths = {
   shield:'<path d="m12 3 8 3v6c0 5-8 9-8 9s-8-4-8-9V6l8-3Z"/><path d="m8 12 3 3 5-6"/>',
   clock:'<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/>',
   plus:'<path d="M12 5v14M5 12h14"/>',
+  minus:'<path d="M5 12h14"/>',
   play:'<path d="m9 5 10 7-10 7V5Z"/>',
   menu:'<path d="M4 7h16M4 12h16M4 17h16"/>',
   close:'<path d="m6 6 12 12M6 18 18 6"/>',

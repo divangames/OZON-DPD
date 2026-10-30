@@ -20,7 +20,9 @@ function execute(conn,cmd){return new Promise((resolve,reject)=>conn.exec(cmd,(e
 // Загружает дерево сборки без удаления существующих файлов сервера.
 async function upload(sftp,local,remote){
  await new Promise((resolve,reject)=>sftp.mkdir(remote,error=>error&&error.code!==4?reject(error):resolve()));
- for(const item of fs.readdirSync(local,{withFileTypes:true})){
+ // Главная страница публикуется после ресурсов, включая новые видео.
+ const items=fs.readdirSync(local,{withFileTypes:true}).sort((a,b)=>Number(a.name==='index.html')-Number(b.name==='index.html'));
+ for(const item of items){
   const from=path.join(local,item.name),to=`${remote}/${item.name}`;
   if(item.isDirectory())await upload(sftp,from,to);
   else await new Promise((resolve,reject)=>sftp.fastPut(from,to,error=>error?reject(error):resolve()));
