@@ -2,14 +2,14 @@ import {icon} from './icons';
 
 // Illustrative workflow only: no real customer, order or tracking identifiers.
 export const processDemo=`<div class="order-receipt" data-ui data-demo-state="0">
- <div class="receipt-top"><span>${icon('box')} Путь заказа</span><span>Демонстрация</span></div>
+ <div class="receipt-top"><span>${icon('box')} Путь заказа</span></div>
  <div class="demo-stage">
   <div class="demo-panel" data-demo-panel="0"><div class="demo-brand">OZON <span>Заказ собран</span></div><div class="demo-package">${icon('box')}<span>Отправление<br><strong>Готово к передаче</strong></span></div><div class="demo-checks"><span>${icon('check')} Товары собраны</span><span>${icon('check')} Данные получателя готовы</span></div></div>
   <div class="demo-panel" data-demo-panel="1" hidden><div class="demo-waybill"><div class="waybill-heading"><strong>DPD</strong>${icon('document')}</div><p>Накладная создана</p><div class="waybill-route"><span>Отправитель</span>${icon('arrow')}<span>Получатель</span></div><div class="demo-barcode" aria-hidden="true"></div><span class="waybill-caption">Образец документа · ваш договор DPD</span></div></div>
   <div class="demo-panel" data-demo-panel="2" hidden><div class="demo-return"><strong>DPD</strong><span>${icon('arrow')}</span><strong>OZON</strong></div><div class="demo-tracking">${icon('check')}<span>Трек-номер<br><strong>прикреплён к заказу</strong></span></div><div class="demo-checks"><span>${icon('check')} Накладная в DPD</span><span>${icon('check')} Трек-номер в OZON</span></div></div>
   <div class="demo-panel" data-demo-panel="3" hidden><div class="demo-status-card"><div class="demo-status-heading"><span>Отслеживание доставки</span>${icon('clock')}</div><div class="demo-status-success">${icon('check')}<div><strong>Статус обновлён</strong><span>В кабинете OZON</span></div></div><ol class="demo-status-timeline"><li><span class="demo-status-dot"></span><div><strong>DPD</strong><span>Заказ отслеживается в DPD</span></div></li><li><span class="demo-status-dot"></span><div><strong>OZON</strong><span>Статус передан в OZON</span></div></li></ol></div></div>
  </div>
- <div class="demo-switcher" role="group" aria-label="Демонстрация этапов">${['Заказ','Накладная','Трек','Статус'].map((label,i)=>`<button type="button" data-demo-step="${i}" aria-pressed="${i===0}" class="${i===0?'active':''}">${label}</button>`).join('')}</div>
+ <div class="demo-switcher" role="group" aria-label="Этапы заказа">${['Заказ','Накладная','Трек','Статус'].map((label,i)=>`<button type="button" data-demo-step="${i}" aria-pressed="${i===0}" class="${i===0?'active':''}">${label}</button>`).join('')}</div>
  <div class="receipt-status"><span class="live-dot"></span><span id="demo-status" aria-live="polite">Заказ готов к отгрузке</span>${icon('check')}</div>
  <div class="demo-playback"><span>Автопоказ этапов</span><button type="button" class="demo-pause" aria-label="Приостановить автопоказ">Пауза</button></div>
 </div>`;

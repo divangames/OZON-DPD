@@ -28,7 +28,7 @@
 .label-dpd{right:11%;bottom:23%;color:var(--red)}
 .art-stamp{position:absolute;bottom:30px;left:28%;z-index:2;font-size:13px;color:var(--muted)}
 .hero-bottom{position:relative;display:flex;align-items:center;justify-content:space-between;gap:20px;padding:35px 0 28px;margin-top:80px;font-size:13px;color:var(--muted);z-index:2}
-.hero-bottom p{display:flex;align-items:center;gap:10px}
+.hero-bottom{justify-content:flex-end}
 .hero-bottom>a{display:grid;place-items:center;border:1px solid var(--line);width:40px;height:40px;border-radius:50%;color:var(--ink)}
 .hero-bottom>a>.icon{transform:rotate(90deg);width:17px;height:17px}
 .small-cross{font-size:17px;color:var(--ink);margin-inline:10px}
@@ -47,6 +47,7 @@
 .footer-top nav{display:flex;align-items:center;gap:28px;font-size:13px}
 .footer-details{display:grid;grid-template-columns:minmax(0,1.8fr) minmax(260px,1fr);gap:60px;margin-top:35px}
 .footer-legal{font-size:13px;line-height:1.8;color:var(--muted)}
+.footer-legal>p:first-child{font-size:.5em}
 .footer-registration{margin-top:20px;color:var(--ink)}
 .footer-contacts{font-style:normal;font-size:13px;display:flex;flex-direction:column;align-items:flex-start;gap:8px}
 .footer-contacts>span{font-weight:600;margin-bottom:6px}
